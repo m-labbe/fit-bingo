@@ -12,11 +12,14 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
 const db = mongoose.connection
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+db.on('error', (err) => { console.log('DB connection error', err) })
+db.once('open', () => { console.log('Connection to DB successful') })
 
 const app = express()
-const router = express.Router()
 const PORT = process.env.PORT
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
     res.send('Hello World')
