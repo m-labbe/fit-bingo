@@ -1,11 +1,16 @@
+import dotenv from 'dotenv'
 import express from 'express'
 import bodyParser from 'body-parser'
 
-const app = express()
-const port = 3000
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config()
+}
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+const app = express()
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
 })
 
 app.get('/', (req, res) => {
