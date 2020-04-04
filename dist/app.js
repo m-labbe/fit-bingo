@@ -20,12 +20,18 @@ _mongoose["default"].connect(process.env.MONGODB_URI);
 
 _mongoose["default"].Promise = global.Promise;
 var db = _mongoose["default"].connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', function (err) {
+  console.log('DB connection error', err);
+});
+db.once('open', function () {
+  console.log('Connection to DB successful');
+});
 var app = (0, _express["default"])();
-
-var router = _express["default"].Router();
-
 var PORT = process.env.PORT;
+app.use(_bodyParser["default"].json());
+app.use(_bodyParser["default"].urlencoded({
+  extended: false
+}));
 app.get('/', function (req, res) {
   res.send('Hello World');
 });
