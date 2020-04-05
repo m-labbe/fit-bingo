@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import path from 'path'
 
 import user from './routes/user'
+import challenge from './routes/challenge'
 
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config()
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', user)
+app.use('/challenges', challenge)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

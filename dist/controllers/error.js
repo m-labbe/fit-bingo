@@ -28,12 +28,12 @@ var throwIf = function throwIf(fn, code, errorType, errorMessage) {
 
 exports.throwIf = throwIf;
 
-var sendError = function sendError(res, status, message) {
+var sendError = function sendError(res, code, message) {
   return function (err) {
-    res.status(status || err.status).json({
+    res.status(code || err.code).json({
       type: 'error',
       message: message || err.message,
-      error: error
+      err: err
     });
   };
 };

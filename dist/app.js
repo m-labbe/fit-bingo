@@ -14,6 +14,8 @@ var _path = _interopRequireDefault(require("path"));
 
 var _user = _interopRequireDefault(require("./routes/user"));
 
+var _challenge = _interopRequireDefault(require("./routes/challenge"));
+
 if (process.env.NODE_ENV !== 'production') {
   _dotenv["default"].config();
 }
@@ -40,6 +42,7 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
 app.use('/users', _user["default"]);
+app.use('/challenges', _challenge["default"]);
 app.listen(PORT, function () {
   console.log("Server running on port ".concat(PORT));
 });

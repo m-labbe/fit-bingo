@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.get = exports.getAll = exports.create = exports.test = void 0;
+exports.get = exports.getAll = exports.create = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -14,12 +14,6 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 var _error = require("./error");
 
 var _user = _interopRequireDefault(require("../models/user"));
-
-var test = function test(req, res) {
-  res.send('Greetings from the user controller!');
-};
-
-exports.test = test;
 
 var create = function create(req, res) {
   var user = new _user["default"]({
@@ -65,7 +59,7 @@ var getAll = /*#__PURE__*/function () {
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](0);
-            (0, _error.sendError)(res)(error);
+            (0, _error.sendError)(res)(_context.t0);
 
           case 10:
           case "end":
@@ -106,7 +100,7 @@ var get = /*#__PURE__*/function () {
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
-            (0, _error.sendError)(res)(error);
+            (0, _error.sendError)(res)(_context2.t0);
 
           case 10:
           case "end":

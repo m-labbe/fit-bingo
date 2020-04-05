@@ -12,10 +12,10 @@ export const throwIf = (fn, code, errorType, errorMessage) => result => {
     return result
 }
 
-export const sendError = (res, status, message) => err => {
-    res.status(status || err.status).json({
+export const sendError = (res, code, message) => err => {
+    res.status(code || err.code).json({
         type: 'error',
         message: message || err.message,
-        error
+        err
     })
 }

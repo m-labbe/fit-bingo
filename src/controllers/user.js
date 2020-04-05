@@ -1,10 +1,6 @@
 import { throwError, throwIf, sendError } from './error'
 import User from '../models/user'
 
-export const test = (req, res) => {
-    res.send('Greetings from the user controller!')
-}
-
 export const create = (req, res) => {
     const user = new User({
         name: req.body.name,
@@ -33,7 +29,7 @@ export const getAll = async (req, res) => {
             )
         res.render('users', { users })
     } catch (err) {
-        sendError(res)(error)
+        sendError(res)(err)
     }
 }
 
@@ -47,7 +43,7 @@ export const get = async (req, res) => {
             )
         res.render('users', { users: [user] })
     } catch (err) {
-        sendError(res)(error)
+        sendError(res)(err)
     }
 
 }
