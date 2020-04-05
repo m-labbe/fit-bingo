@@ -1,6 +1,19 @@
 import { throwError, throwIf, sendError } from './error'
 import Challenge from '../models/challenge'
 
+export const getAll = async (req, res) => {
+    try {
+        const challenges = await Challenge
+            .find({})
+            .then(
+                throwIf(r => !r, 400, 'not found', 'Challenge Not Found'),
+                throwError(500, 'Database Error')
+            )
+        res.render('challenges', {challenges})
+    } catch (err) {
+        sendError(res)(err)
+    }
+}
 
 export const get = async (req, res) => {
     try {

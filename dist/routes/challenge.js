@@ -13,6 +13,7 @@ var _challenge = require("../controllers/challenge");
 
 var router = _express["default"].Router();
 
+router.get('/', _challenge.getAll);
 router.get('/:id', _challenge.get);
 router.post('/create', _challenge.create);
 var _default = router;
