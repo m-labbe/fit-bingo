@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
 var _express = _interopRequireDefault(require("express"));
@@ -11,8 +13,6 @@ var _mongoose = _interopRequireDefault(require("mongoose"));
 var _path = _interopRequireDefault(require("path"));
 
 var _user = _interopRequireDefault(require("./routes/user"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 if (process.env.NODE_ENV !== 'production') {
   _dotenv["default"].config();
