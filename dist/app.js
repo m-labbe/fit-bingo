@@ -8,6 +8,8 @@ var _bodyParser = _interopRequireDefault(require("body-parser"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
+var _path = _interopRequireDefault(require("path"));
+
 var _user = _interopRequireDefault(require("./routes/user"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -28,6 +30,8 @@ db.once('open', function () {
 });
 var app = (0, _express["default"])();
 var PORT = process.env.PORT;
+app.set('view engine', 'hbs');
+app.set('views', _path["default"].join(__dirname, './views'));
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: false

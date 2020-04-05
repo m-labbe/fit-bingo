@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import path from 'path'
 
 import user from './routes/user'
 
@@ -18,6 +19,8 @@ db.once('open', () => { console.log('Connection to DB successful') })
 const app = express()
 const PORT = process.env.PORT
 
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, './views'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
