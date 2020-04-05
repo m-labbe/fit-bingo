@@ -1,4 +1,9 @@
 
+Create db from mongo
+```
+use fitChallenge
+```
+
 Yarn commands
 ```
 yarn start-dev

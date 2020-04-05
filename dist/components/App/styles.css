@@ -1,0 +1,22 @@
+.gridContainer {
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    grid-auto-rows: minmax(120px, 1fr);
+    overflow: auto;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.gridContainer:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.gridItem{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid white;
+}

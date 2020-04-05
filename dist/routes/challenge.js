@@ -5,16 +5,16 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
 var _challenge = require("../controllers/challenge");
 
-var router = _express["default"].Router();
+var router = _express.default.Router();
 
 router.get('/', _challenge.getAll);
 router.get('/:id', _challenge.get);
 router.post('/create', _challenge.create);
 var _default = router;
-exports["default"] = _default;
+exports.default = _default;

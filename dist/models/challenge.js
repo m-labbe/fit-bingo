@@ -5,11 +5,11 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-var Schema = _mongoose["default"].Schema;
+var Schema = _mongoose.default.Schema;
 var TaskSchema = new Schema({
   description: {
     type: String,
@@ -25,6 +25,6 @@ var ChallengeSchema = new Schema({
   tasks: [TaskSchema]
 });
 
-var _default = _mongoose["default"].model('Challenge', ChallengeSchema);
+var _default = _mongoose.default.model('Challenge', ChallengeSchema);
 
-exports["default"] = _default;
+exports.default = _default;

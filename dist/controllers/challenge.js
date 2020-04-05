@@ -16,15 +16,15 @@ var _error = require("./error");
 var _challenge = _interopRequireDefault(require("../models/challenge"));
 
 var getAll = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(req, res) {
     var challenges;
-    return _regenerator["default"].wrap(function _callee$(_context) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return _challenge["default"].find({}).then((0, _error.throwIf)(function (r) {
+            return _challenge.default.find({}).then((0, _error.throwIf)(function (r) {
               return !r;
             }, 400, 'not found', 'Challenge Not Found'), (0, _error.throwError)(500, 'Database Error'));
 
@@ -57,21 +57,24 @@ var getAll = /*#__PURE__*/function () {
 exports.getAll = getAll;
 
 var get = /*#__PURE__*/function () {
-  var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res) {
+  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(req, res) {
     var challenge;
-    return _regenerator["default"].wrap(function _callee2$(_context2) {
+    return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
             _context2.next = 3;
-            return _challenge["default"].findById(req.params.id).then((0, _error.throwIf)(function (r) {
+            return _challenge.default.findById(req.params.id).then((0, _error.throwIf)(function (r) {
               return !r;
             }, 400, 'not found', 'Challenge Not Found'), (0, _error.throwError)(500, 'Database Error'));
 
           case 3:
             challenge = _context2.sent;
-            res.render('challenge', challenge);
+            res.render('challenge', {
+              title: challenge.name,
+              bootstrapData: JSON.stringify(challenge)
+            });
             _context2.next = 10;
             break;
 
@@ -96,7 +99,7 @@ var get = /*#__PURE__*/function () {
 exports.get = get;
 
 var create = function create(req, res) {
-  var challenge = new _challenge["default"]({
+  var challenge = new _challenge.default({
     name: req.body.name,
     tasks: req.body.tasks
   });

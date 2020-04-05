@@ -23,7 +23,7 @@ export const get = async (req, res) => {
                 throwIf(r => !r, 400, 'not found', 'Challenge Not Found'),
                 throwError(500, 'Database Error')
             )
-        res.render('challenge', challenge)
+        res.render('challenge', { title: challenge.name, bootstrapData: JSON.stringify(challenge) })
     } catch (err) {
         sendError(res)(err)
     }
